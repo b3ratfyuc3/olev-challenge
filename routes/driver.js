@@ -58,6 +58,7 @@ router.delete('/delete/:id', function(req, res, next) {
 	Driver.remove({"_id": req.params.id}, function(err, driver) {
 		if (err)
 			res.json(err);
+
 		res.json({
 			'message': 'Successfully deleted',
 			'status': 1
