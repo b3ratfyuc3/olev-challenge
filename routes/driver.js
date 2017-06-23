@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import Driver from './../models/drivers';
 
-const router = express.Router();
+let router = express.Router();
 
 router.get('/', (req, res, next) => {
 	res.json({'d':'driver endpoint'});

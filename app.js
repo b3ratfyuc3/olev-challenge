@@ -4,14 +4,14 @@ import favicon from 'serve-favicon';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
 
-const index = require('./routes/index');
-const driver = require('./routes/driver');
+import index from './routes/index';
+import driver from './routes/driver';
 
-const app = express();
+let app = express();
 
 // mongoose connection
-const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/olev');
 
 // drivers model
