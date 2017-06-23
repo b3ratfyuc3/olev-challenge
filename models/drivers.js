@@ -1,7 +1,8 @@
-var mongoose = require('mongoose');
-var Schema	 = mongoose.Schema;
+import mongoose from 'mongoose';
 
-var driverSchema = new Schema({
+const Schema = mongoose.Schema;
+
+let driverSchema = new Schema({
 	name: String,
 	surname: String,
 	location: String

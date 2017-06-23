@@ -1,20 +1,20 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
+import express from 'express';
+import mongoose from 'mongoose';
+import Driver from './../models/drivers';
 
-var Driver = require('./../models/drivers');
+const router = express.Router();
 
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
 	res.json({'d':'driver endpoint'});
 });
 
-router.post('/add', function(req, res, next) {
-	var driver = new Driver({
+router.post('/add', (req, res, next) => {
+	let driver = new Driver({
 		'name': req.query.name,
 		'surname': req.query.surname
 	});
 
-	driver.save(function(err) {
+	driver.save((err) => {
 		if (err)
 			res.json(err);
 		
@@ -25,8 +25,8 @@ router.post('/add', function(req, res, next) {
   });
 });
 
-router.get('/get/:id', function(req, res, next) {
-	Driver.findById(req.params.id, function(err, driver) {
+router.get('/get/:id', (req, res, next) => {
+	Driver.findById(req.params.id, (err, driver) => {
 		if (err)
 			res.json(err);
 
@@ -34,15 +34,15 @@ router.get('/get/:id', function(req, res, next) {
 	});
 });
 
-router.put('/update/:id', function(req, res, next) {
-	Driver.findById(req.params.id, function(err, driver) {
+router.put('/update/:id', (req, res, next) => {
+	Driver.findById(req.params.id, (err, driver) => {
 		if (err)
 			res.json(err);
 
 		driver.name = req.query.name;
 		driver.surname = req.query.surname;
 
-		driver.save(function(err){
+		driver.save((err) => {
 			if (err)
 				res.send(err);
 
@@ -54,8 +54,8 @@ router.put('/update/:id', function(req, res, next) {
 	});
 });
 
-router.delete('/delete/:id', function(req, res, next) {
-	Driver.remove({"_id": req.params.id}, function(err, driver) {
+router.delete('/delete/:id', (req, res, next) => {
+	Driver.remove({"_id": req.params.id}, (err, driver) => {
 		if (err)
 			res.json(err);
 
@@ -66,8 +66,8 @@ router.delete('/delete/:id', function(req, res, next) {
 	});
 });
 
-router.get('/getAll', function(req, res, next) {
-	Driver.find( function(err, drivers) {
+router.get('/getAll', (req, res, next) => {
+	Driver.find((err, drivers) => {
 		if (err)
 			res.json(err);
 

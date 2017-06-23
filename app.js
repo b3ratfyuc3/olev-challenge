@@ -1,21 +1,21 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+import express from 'express';
+import path from 'path';
+import favicon from 'serve-favicon';
+import logger from 'morgan';
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
 
-var index = require('./routes/index');
-var driver = require('./routes/driver');
+const index = require('./routes/index');
+const driver = require('./routes/driver');
 
-var app = express();
+const app = express();
 
 // mongoose connection
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/olev');
 
 // drivers model
-var Drivers = require('./models/drivers');
+const Drivers = require('./models/drivers');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,14 +33,14 @@ app.use('/api', index);
 app.use('/api/driver', driver);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+app.use((req, res, next) => {
+  let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
