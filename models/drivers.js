@@ -4,6 +4,7 @@ var Schema	 = mongoose.Schema;
 var driverSchema = new Schema({
 	name: String,
 	surname: String,
+	location: String
 });
 
 
