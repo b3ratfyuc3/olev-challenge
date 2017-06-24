@@ -1,6 +1,6 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import Driver from './../models/drivers';
+let express = require('express');
+let mongoose = require('mongoose');
+let Driver = require('./../models/drivers');
 
 let router = express.Router();
 

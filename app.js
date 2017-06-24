@@ -1,13 +1,13 @@
-import express from 'express';
-import path from 'path';
-import favicon from 'serve-favicon';
-import logger from 'morgan';
-import cookieParser from 'cookie-parser';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
+let express = require('express');
+let path  = require('path');
+let favicon  = require('serve-favicon');
+let logger  = require('morgan');
+let cookieParser  = require('cookie-parser');
+let bodyParser  = require('body-parser');
+let mongoose  = require('mongoose');
 
-import index from './routes/index';
-import driver from './routes/driver';
+let index  = require('./routes/index');
+let driver  = require('./routes/driver');
 
 let app = express();
 
