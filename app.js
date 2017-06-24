@@ -12,7 +12,13 @@ import driver from './routes/driver';
 let app = express();
 
 // mongoose connection
-mongoose.connect('mongodb://localhost/olev');
+if (app.get('env') === 'development') {
+  var db_uri = "mongodb://localhost/olev";
+}else{
+  var db_uri = "mongodb://heroku_d90bxcdt:gkdp85mn2utaatfj8eo27rc0vm@ds135552.mlab.com:35552/heroku_d90bxcdt";
+}
+
+mongoose.connect(db_uri);
 
 // drivers model
 const Drivers = require('./models/drivers');
