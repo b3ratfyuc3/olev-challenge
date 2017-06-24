@@ -21,7 +21,7 @@ if (app.get('env') === 'development') {
 mongoose.connect(db_uri);
 
 // drivers model
-const Drivers = require('./models/drivers');
+let Drivers = require('./models/drivers');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
