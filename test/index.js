@@ -18,7 +18,7 @@ describe('Node Server', () => {
 			});
 	});
 
-	it('(POST /api/driver/add) should have property status', (done)=> {
+	it('(POST /api/driver/add) should have property status and that equal 1', (done)=> {
 		chai.request(server)
 			.post('/api/driver/add')
 			.set('content-type','application/json')
