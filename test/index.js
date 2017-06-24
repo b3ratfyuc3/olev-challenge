@@ -16,5 +16,17 @@ describe('Node Server', () => {
 				res.text.should.contain('Welcome to Express')
 				done();
 			});
-	})
+	});
+
+	it('(POST /api/driver/add) should have property status', (done)=> {
+		chai.request(server)
+			.post('/api/driver/add')
+			.set('content-type','application/json')
+			.send({name: 'Foo', surname: 'Bar'})
+			.end( (err, res) => {
+				res.should.have.status(200);
+				res.body.should.have.property('status').that.equals(1);
+				done();
+			});
+	});
 });
