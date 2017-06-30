@@ -6,7 +6,8 @@ let driverSchema = new Schema({
 	name: String,
 	surname: String,
 	long: String,
-	lat: String
+	lat: String,
+	place: String
 });
 
 

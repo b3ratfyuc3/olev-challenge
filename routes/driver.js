@@ -1,6 +1,7 @@
 let express = require('express');
 let mongoose = require('mongoose');
 let Driver = require('./../models/drivers');
+let driverHelper = require('./../helper/driverHelper')
 
 let router = express.Router();
 
@@ -76,7 +77,28 @@ router.get('/getAll', (req, res, next) => {
 });
 
 router.get('/ride', (req, res, next) => {
-	
+	Driver.find((err, drivers) => {
+		if (err) 
+			res.json(err);
+
+		/*
+		 * Example coordinates
+		 * Yeditepe Üniversitesi (Kayışdağı)
+		*/
+		let exampleCoord = { lat:"40.974571", long: "29.153885" }; 
+
+		let distances = [];
+		for(let i=0; i < drivers.length; i++ ){
+			driverHelper.distance(exampleCoord.lat, exampleCoord.long, drivers[i].lat, drivers[i].long, (data) => {
+				distances.push({'distance': data, 'driver': drivers[i]});
+			});
+		}
+
+		res.json(distances.sort((a, b) => {
+			return parseFloat(a.distance) - parseFloat(b.distance);
+		}).slice(0,3));
+
+	});
 });
 
 module.exports = router;
