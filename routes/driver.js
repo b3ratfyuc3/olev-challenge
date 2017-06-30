@@ -75,4 +75,8 @@ router.get('/getAll', (req, res, next) => {
 	});
 });
 
+router.get('/ride', (req, res, next) => {
+	
+});
+
 module.exports = router;
