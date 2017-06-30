@@ -7,7 +7,7 @@
 | /api/driver/get/:driver_id | `GET` | Empty | Get a driver. |
 | /api/driver/update/:driver_id | `PUT` | {'name':'foo', 'surname':'bar'} | Update a driver with new info. |
 | /api/driver/delete/:driver_id | `DELETE` | Empty | Delete a driver. |
-
+| /api/driver/ride | `GET` | Empty | It shows the three nearest drivers |
 
 ### Run API
 > npm install && npm start
