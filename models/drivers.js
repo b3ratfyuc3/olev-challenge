@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 let driverSchema = new Schema({
 	name: String,
 	surname: String,
-	location: String
+	long: String,
+	lat: String
 });
 
 
