@@ -19,7 +19,7 @@ let db_uri = "mongodb://heroku_d90bxcdt:gkdp85mn2utaatfj8eo27rc0vm@ds135552.mlab
 //}
 
 
-mongoose.connect(db_uri, { useMongoClient: true });
+mongoose.connect(db_uri, { useMongoClient: true })
 
 
 // view engine setup
