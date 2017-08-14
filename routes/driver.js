@@ -14,15 +14,20 @@ router.post("/add", (req, res) => {
         "surname": req.query.surname
     });
 
-    driver.save((err) => {
-        if (err)
+    let promise = driver.save();
+    promise.then((err) => {
+        if(err)
             res.json(err);
-		
+
         res.json({
             "message": "Driver created!",
             "status": 1
         });
+    }).catch(() => {
+        console.log("Promise Rejected");
     });
+
+
 });
 
 router.get("/get/:id", (req, res) => {

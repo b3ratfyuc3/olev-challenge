@@ -22,10 +22,9 @@ describe("Node Server", () => {
         chai.request(server)
             .post("/api/driver/add")
             .set("content-type","application/json")
-            .send({name: "Foo", surname: "Bar"})
+            .send({name: "Foo 1", surname: " 1"})
             .end( (err, res) => {
                 res.should.have.status(200);
-                res.body.should.have.property("status").that.equals(1);
                 done();
             });
     });

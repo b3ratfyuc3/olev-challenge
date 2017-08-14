@@ -4,6 +4,7 @@ let logger  = require("morgan");
 let cookieParser  = require("cookie-parser");
 let bodyParser  = require("body-parser");
 let mongoose  = require("mongoose");
+mongoose.Promise = Promise;
 
 let index  = require("./routes/index");
 let driver  = require("./routes/driver");
@@ -18,7 +19,7 @@ let db_uri = "mongodb://heroku_d90bxcdt:gkdp85mn2utaatfj8eo27rc0vm@ds135552.mlab
 //}
 
 
-mongoose.connect(db_uri);
+mongoose.connect(db_uri, { useMongoClient: true });
 
 
 // view engine setup
