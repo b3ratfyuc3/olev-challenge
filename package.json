@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www --exec babel-node",
-    "test": "mocha --compilers js:babel-register"
+    "test": "mocha --compilers js:babel-register",
+		"lint": "eslint ."
   },
   "dependencies": {
     "body-parser": "~1.16.0",
@@ -18,7 +19,6 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "babel-eslint": "^7.2.3",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
